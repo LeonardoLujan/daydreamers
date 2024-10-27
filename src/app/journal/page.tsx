@@ -64,6 +64,11 @@ export default function Profile() {
 
         <div>
             <Header/>
+            <div className="justify-center flex font-display font-bold">
+                <button className="justify-center flex" onClick={(() => router.push('/journal/journalcomp'))}>
+                    Create Journal
+                </button>
+            </div> 
             <div>
                 
             {stories.map((story) => (
