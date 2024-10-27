@@ -13,16 +13,16 @@ export default function login2() {
     event.preventDefault(); 
     const formData = new FormData(event.target);
     console.log(formData);
-    // const name = formData.get('name');
-    // const age = formData.get('age');
-    // const appearance = formData.get('appearance');
-    // const interests = formData.get('interests');
+    const name = formData.get('protagonistName');
+    const age = formData.get('age');
+    const appearance = formData.get('appearance');
+    const interests = formData.get('interests');
 
     console.log(event);
     
     try {
       let response = await fetch(serv + 'profile/password_less_login/profile/profile', {
-        Host: serv + 'profile/password_less_login/profile/profile',
+        Host: serv + 'profile/profile',
         method: 'POST',
         body: formData,
       });
@@ -31,7 +31,9 @@ export default function login2() {
       const token = response.token
       localStorage.setItem("token", token)
 
-      router.push('/journal')
+      if(!response){
+        router.push('/journal')
+      }
 
 
       alert(`${response.name}`)
