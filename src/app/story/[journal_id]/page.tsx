@@ -66,7 +66,7 @@ export default function Story() {
     }
 
     return (
-        <div>
+        <div key={journal.id}>
             <Header />
 
             <div className="font-display mx-24 font-medium text-5xl">
