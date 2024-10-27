@@ -1,7 +1,7 @@
 //creating story
 //creating image
 //save draft
-import Header from "@/components/header";
+import Headerex from "@/components/headerex";
 import TextArea from "./textarea";
 
 
@@ -9,7 +9,7 @@ export default function JournalComp() {
 
     return(
         <div>
-            <Header/>
+            <Headerex/>
             <div className="my-10 text-4xl font-display font-semibold flex justify-center">
                 Create your journal
             </div>

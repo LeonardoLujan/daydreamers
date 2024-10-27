@@ -83,8 +83,9 @@ export default function Story() {
             {
                 journal.storyline.frames.map((frame) => {
                     return <div className='mx-24 my-10'>
-                        { frame.image && <img src={SERVER_HOST + '/' + frame.image}></img> }
-                        <span>{frame.story}</span>
+                        <div className="mb-2" ><span >{frame.story}</span></div>
+                        { frame.image && <img width="300" src={SERVER_HOST + '/' + frame.image}></img> }
+                        
                     </div>
                 })
             }
