@@ -36,7 +36,7 @@ export default function Profile() {
                     </div>
                     
                     <div className="col-span-2 bg-white rounded-xl">
-                        <div className="text-black border-solid border-black ">
+                        <div className="text-black border-solid border-black line-clamp-5">
                             This is where the Journal Entry will be
                         </div>
                     </div>
@@ -53,7 +53,7 @@ export default function Profile() {
                     </div>
                     
                     <div className="col-span-2 bg-white rounded-xl">
-                        <div className="text-black border-solid border-black ">
+                        <div className="text-black border-solid border-black line-clamp-5">
                             This is where the Journal Entry will be
                         </div>
                     </div>
