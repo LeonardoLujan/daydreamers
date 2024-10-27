@@ -9,7 +9,7 @@ export default function Profile() {
     return(
 
         <div>
-            <Header/>
+            {/* <Header/> */}
             <Login2/>
 
         </div>
