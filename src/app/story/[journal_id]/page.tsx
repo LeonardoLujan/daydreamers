@@ -74,21 +74,41 @@ export default function Story() {
             </div>
 
             <div className="flex mx-24 my-10 justify-center bg-white rounded-xl">
+                
                 <div className="text-black border-solid border-black line-clamp-5">
                     { journal.storyline.summary }
                 </div>
                 <hr></hr>
             </div>
 
-            {
-                journal.storyline.frames.map((frame) => {
-                    return <div className='mx-24 my-10'>
-                        <div className="mb-2" ><span >{frame.story}</span></div>
-                        { frame.image && <img width="300" src={SERVER_HOST + '/' + frame.image}></img> }
-                        
+            <div className="flex ml-24">
+                <div className="w-1/3 my-10">
+                    <div className="font-display text-4xl font-medium mb-4">
+                        Journal
                     </div>
-                })
-            }
+                    <div className="">
+                        {journal.journal}
+                    </div>
+                </div>
+
+
+                <div className="w-2/3 my-10 ml-16">
+                    <div className="mx-12 font-display text-4xl font-medium mb-4">
+                        Story
+                    </div>
+                    
+                    <div>   {  
+                        journal.storyline.frames.map((frame) => {
+                            return <div className='mx-12 my-4 w-80 flex inline-grid grid-cols-2 justify-end '>
+                                <div className="mr-4 mb-3 mt-2 w-40 flex justify-center"><span>{frame.story}</span></div>
+                                <div>{frame.image && <img width="300" src={SERVER_HOST + '/' + frame.image}></img> }</div>
+                                
+                            </div>
+                        })
+                        }
+                    </div>
+                </div>
+            </div>
 
             <div className="flex justify-center rounded-xl">
                 <button onClick={() => router.push('/journal')}>
