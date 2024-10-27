@@ -2,8 +2,7 @@
 
 import Form from 'next/form';
 import { useRouter } from 'next/navigation';
-
-const serv = "http://10.136.11.31:8000/";
+import { SERVER_HOST } from '../../shared/const'
 
 
 export default function Search() {
@@ -13,15 +12,9 @@ export default function Search() {
     const formData = new FormData(event.target);
     console.log(formData);
     const name = formData.get('name');
-    // const age = formData.get('age');
-    // const appearance = formData.get('appearance');
-    // const interests = formData.get('interests');
-
-    console.log(event);
     
     try {
-      let response = await fetch(serv + 'profile/password_less_login/' + name + '/', {
-        Host: serv + 'profile/password_less_login/' + name + '/',
+      let response = await fetch(SERVER_HOST + 'profile/password_less_login/' + name + '/', {
         method: 'POST',
         body: formData,
       });
@@ -30,16 +23,11 @@ export default function Search() {
       const token = response.token
       localStorage.setItem("token", token)
 
-      if(!response){
+      if(response.profile){
         router.push('/journal')
-      }
-
-      else{
+      } else{
         router.push('/login2')
       }
-
-
-      alert(`${response.name}`)
     } catch (error) {
       // Handle error
       console.error('Error submitting form:', error);
@@ -53,9 +41,8 @@ export default function Search() {
           <div>
             <div className="my-2">
               <h1>Username</h1>
-              <input className="rounded-lg" name="name" placeholder="Insert here"/>
+              <input className="rounded-lg" name="name" placeholder="Jhon Doe"/>
             </div>
-            
           </div>
           
           <div className="justify-center flex mt-10 font-semibold bg-white rounded-md">
