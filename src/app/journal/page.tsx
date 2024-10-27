@@ -1,10 +1,20 @@
-
+"use client"
 
 import Header from "@/components/header";
 import Main from "@/app/journal/main"
+import {useState} from 'react'
+import { useRouter } from 'next/navigation';
+
+export interface Entry {
+    isEntryActive: boolean;
+    onShowEntry: () => void;
+    unShowEntry: () => void;
+}
 
 export default function Profile() {
+    const router = useRouter();
 
+    
 
     return(
 
@@ -25,6 +35,11 @@ export default function Profile() {
                     </div>
                     <div className="col-span-2  bg-white rounded-xl">
                         <Main/>
+                    </div>
+                    <div className="text-xl">
+                        <button onClick={() => router.push('/story')}>
+                            <div className="font-semibold bg-white rounded-xl">View your story</div>
+                        </button>
                     </div>
                     
                     
